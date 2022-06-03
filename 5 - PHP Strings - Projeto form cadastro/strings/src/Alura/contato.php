@@ -1,6 +1,6 @@
 <?php
 
-namespace App\alura;
+namespace App\Alura;
 
 class Contato
 {

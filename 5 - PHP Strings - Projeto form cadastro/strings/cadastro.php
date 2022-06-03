@@ -2,8 +2,8 @@
 
 	require 'autoload.php';
 
-	$usuario = new \App\alura\usuario($_POST['nome'], $_POST['senha'], $_POST['genero']);
-	$contato = new \App\alura\contato($_POST['email'], $_POST['endereco'], $_POST['cep'], $_POST['telefone']);
+	$usuario = new \App\Alura\Usuario($_POST['nome'], $_POST['senha'], $_POST['genero']);
+	$contato = new \App\Alura\Contato($_POST['email'], $_POST['endereco'], $_POST['cep'], $_POST['telefone']);
 
 ?>
 
