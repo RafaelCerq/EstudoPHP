@@ -1,0 +1,16 @@
+{
+    "name": "rafael/buscador_cursos",
+    "description": "Buscador de cursos",
+    "type": "library",
+    "authors": [
+        {
+            "name": "rafael",
+            "email": "rafaelcerq91@gmai.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "symfony/dom-crawler": "^4.2",
+        "symfony/css-selector": "^4.2"
+    }
+}
