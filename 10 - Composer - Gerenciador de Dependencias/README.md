@@ -7,8 +7,9 @@
 - Atualizar autoload: composer dump-autoload
 
 - Instalando dependências pelo composer: composer require nome-dependencia
+
     Exemplo: 
-        composer require guzzlehttp/guzzle
-        composer require symfony/dom-crawler
+        composer require guzzlehttp/guzzle; 
+        composer require symfony/dom-crawler; 
 
 
