@@ -1,14 +1,17 @@
-- Instalar composer (https://getcomposer.org)
-- Verificar versão do composer: composer --version
-- Repositório principal do Composer é um site chamado http://packagist.org
+#Autoload com classmap, files e PSR-4
+"autoload" : {
+    "classmap": [
+        "./Teste.php"
+    ],
+    "files": [
+	"./functions.php"
+    ],
+    "psr-4" : {
+        "Alura\\BuscadorDeCursos\\": "src/"
+    }
+}
 
-- Instalar dependências a partir do composer.json: composer install
-- Atualizar dependências a partir do composer.json: composer update
-- Atualizar autoload: composer dump-autoload
 
-- Instalando dependências pelo composer: composer require nome-dependencia
-    Exemplo: 
-        composer require guzzlehttp/guzzle
-        composer require symfony/dom-crawler
-
-
+- Para atualizar o arquivo autoload.php baseado no composer.json, podemos rodar o comando composer dumpautoload
+- Para classes que não seguem o PSR-4, podemos definir um classmap dentro do composer.json
+- Para carregar um biblioteca de funções automaticamente, podemos adicionar uma entrada files no composer.json
