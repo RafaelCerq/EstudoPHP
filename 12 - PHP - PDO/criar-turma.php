@@ -12,19 +12,24 @@
 	// processos de definição da turma
 	$connection->beginTransaction();
 
-	$aStudent = new Student(
-		null,
-		'Julio Araujo',
-		new DateTimeImmutable('1985-05-01'),
-	);
-	$studentRepository->save($aStudent);
+	try {
+		$aStudent = new Student(
+			null,
+			'Julio Araujo',
+			new DateTimeImmutable('1985-05-01'),
+		);
+		$studentRepository->save($aStudent);
 
-	$anotherStudent = new Student(
-		null,
-		'Sergio Silva',
-		new DateTimeImmutable('1985-05-01'),
-	);
-	$studentRepository->save($anotherStudent);
+		$anotherStudent = new Student(
+			null,
+			'Sergio Silva',
+			new DateTimeImmutable('1985-05-01'),
+		);
+		$studentRepository->save($anotherStudent);
 
-	$connection->commit();
-	// $connection->rollBack();
+		$connection->commit();
+	} catch (\PDOException $e) {
+		echo $e->getMessage();
+		$connection->rollBack();
+	}
+

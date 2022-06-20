@@ -35,7 +35,7 @@
 
 		private function hydrateStudentList(\PDOStatement $stmt): array
 		{
-			$studentDataList = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			$studentDataList = $stmt->fetchAll();
 			$studentList = [];
 
 			foreach ($studentDataList as $studentData) {
