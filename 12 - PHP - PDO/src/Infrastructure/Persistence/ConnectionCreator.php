@@ -8,6 +8,8 @@
 	{
 		public static function createConnection(): PDO
 		{
+			//$connection = new PDO('mysql:host=172.17.0.2;dbname=banco', 'root', 'senhalura');
+		
 			$databasePath = __DIR__ . '/../../../banco.sqlite';
 
 			$connection = new PDO('sqlite:' . $databasePath);
