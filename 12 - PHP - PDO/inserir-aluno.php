@@ -4,13 +4,12 @@
 
 	require_once 'vendor/autoload.php';
 
-	$databasePath = __DIR__ . '/banco.sqlite';
-	$pdo = new PDO('sqlite:' . $databasePath);
+	$pdo = \Alura\Pdo\Infrastructure\Persistence\ConnectionCreator::createConnection();
 
 	$student = new Student(
 		null,
-		'João Guilherme',
-		new \DateTimeImmutable('2001-01-01')
+		"Ana Caroline",
+		new \DateTimeImmutable('2001-02-02')
 	);
 	$name = $student->name();
 
