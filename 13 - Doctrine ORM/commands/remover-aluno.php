@@ -5,12 +5,11 @@
 
 	require_once __DIR__ . '/../vendor/autoload.php';
 
-	$aluno = new Aluno();
-	$aluno->setNome($argv[1]);
-
 	$entityManagerFactory = new EntityManagerFactory();
 	$entityManager = $entityManagerFactory->getEntityManager();
 
-	$entityManager->persist($aluno);
+	$id = $argv[1];
+	$aluno = $entityManager->getReference(Aluno::class, $id);
 
+	$entityManager->remove($aluno);
 	$entityManager->flush();
