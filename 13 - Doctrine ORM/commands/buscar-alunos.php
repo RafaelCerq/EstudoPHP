@@ -1,6 +1,7 @@
 <?php
 
 	use Alura\Doctrine\Entity\Aluno;
+	use Alura\Doctrine\Entity\Telefone;
 	use Alura\Doctrine\Helper\EntityManagerFactory;
 
 	require_once __DIR__ . '/../vendor/autoload.php';
@@ -14,9 +15,19 @@
 	$alunoList = $alunoRepository->findAll();
 
 	foreach ($alunoList as $aluno) {
-		echo "ID: {$aluno->getId()}\nNome: {$aluno->getNome()}\n\n";
+		$telefones = $aluno
+			->getTelefones()
+			->map(function (Telefone $telefone) {
+				return $telefone->getNumero();
+			})
+			->toArray();
+		echo "ID: {$aluno->getId()}\nNome: {$aluno->getNome()}\n";
+		echo "Telefones: " . implode(', ', $telefones);
+
+		echo "\n\n";
 	}
 
+	/*
 	$nico = $alunoRepository->find(4);
 	echo $nico->getNome() . "\n\n";
 
@@ -25,3 +36,4 @@
 	]);
 
 	var_dump($sergioLopes);
+	*/

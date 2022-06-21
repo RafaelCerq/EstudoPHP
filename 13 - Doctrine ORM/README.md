@@ -6,3 +6,7 @@
 - composer dumpautoload
 
 - O comando vendor\bin\doctrine.bat orm:schema-tool:create, processa o schema e o cria diretamente com o EntityManager ou gera o SQL para criar esse schema no banco de dados. Execute para criar "banco.sqlite"
+
+- composer require doctrine/migrations
+- vendor\bin\doctrine-migrations migrations:diff (Gerar migrations)
+- vendor\bin\doctrine-migrations migrations:migrate (Executa todas as migrations)
