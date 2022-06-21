@@ -4,5 +4,5 @@
 
 - composer install
 - composer dumpautoload
-- Crie um arquivo chamado "banco.sqlite" em /var/data/
 
+- O comando vendor\bin\doctrine.bat orm:schema-tool:create, processa o schema e o cria diretamente com o EntityManager ou gera o SQL para criar esse schema no banco de dados. Execute para criar "banco.sqlite"
