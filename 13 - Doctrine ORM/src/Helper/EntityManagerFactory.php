@@ -19,9 +19,16 @@
 				[$rootDir . '/src'],
 				true
 			);
+			// $connection = [
+			// 	'driver' => 'pdo_sqlite',
+			// 	'path' => $rootDir . '/var/data/banco.sqlite'
+			// ];
 			$connection = [
-				'driver' => 'pdo_sqlite',
-				'path' => $rootDir . '/var/data/banco.sqlite'
+				'driver' => 'pdo_mysql',
+				'host' => 'localhost',
+				'dbname' => 'db_testes',
+				'user' => 'root',
+				'password' => 'root'
 			];
 
 			return EntityManager::create($connection, $config);
