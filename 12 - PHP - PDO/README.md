@@ -3,5 +3,5 @@
 - localizar dentro do arquivo o item extension=pdo_sqlite e retirar o comentário
 
 - Execute "composer update"
-- Crie um arquivo chamado "banco.sqlite"
+- Crie um arquivo chamado "banco.sqlite" no diretorio raiz do projeto
 
