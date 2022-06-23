@@ -11,8 +11,12 @@
 
 	$alunoRepository = $entityManager->getRepository(Aluno::class);
 
-	/** @var Aluno[] $alunoList */
-	$alunoList = $alunoRepository->findAll();
+	// /** @var Aluno[] $alunoList */
+	// $alunoList = $alunoRepository->findAll();
+
+	$dql = "SELECT aluno FROM Alura\\Doctrine\\Entity\\Aluno aluno WHERE aluno.id = 1 OR aluno.nome = 'Nico Steppat' ORDER BY aluno.nome";
+	$query = $entityManager->createQuery($dql);
+	$alunoList = $query->getResult();
 
 	foreach ($alunoList as $aluno) {
 		$telefones = $aluno
