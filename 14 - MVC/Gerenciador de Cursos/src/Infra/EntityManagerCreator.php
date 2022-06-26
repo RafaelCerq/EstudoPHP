@@ -1,27 +1,27 @@
 <?php
 
-namespace Alura\Cursos\Infra;
+    namespace Alura\Cursos\Infra;
 
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Tools\Setup;
+    use Doctrine\ORM\EntityManager;
+    use Doctrine\ORM\EntityManagerInterface;
+    use Doctrine\ORM\Tools\Setup;
 
-class EntityManagerCreator
-{
-    public function getEntityManager(): EntityManagerInterface
+    class EntityManagerCreator
     {
-        $paths = [__DIR__ . '/../Entity'];
-        $isDevMode = false;
+        public function getEntityManager(): EntityManagerInterface
+        {
+            $paths = [__DIR__ . '/../Entity'];
+            $isDevMode = false;
 
-        $dbParams = array(
-            'driver' => 'pdo_sqlite',
-            'path' => __DIR__ . '/../../db.sqlite'
-        );
+            $dbParams = array(
+                'driver' => 'pdo_sqlite',
+                'path' => __DIR__ . '/../../db.sqlite'
+            );
 
-        $config = Setup::createAnnotationMetadataConfiguration(
-            $paths,
-            $isDevMode
-        );
-        return EntityManager::create($dbParams, $config);
+            $config = Setup::createAnnotationMetadataConfiguration(
+                $paths,
+                $isDevMode
+            );
+            return EntityManager::create($dbParams, $config);
+        }
     }
-}
