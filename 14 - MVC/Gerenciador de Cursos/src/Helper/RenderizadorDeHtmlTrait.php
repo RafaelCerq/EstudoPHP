@@ -1,16 +1,16 @@
 <?php
 
-namespace Alura\Cursos\Helper;
+    namespace Alura\Cursos\Helper;
 
-trait RenderizadorDeHtmlTrait
-{
-    public function renderizaHtml(string $caminhoTemplate, array $dados): string
+    trait RenderizadorDeHtmlTrait
     {
-        extract($dados);
-        ob_start();
-        require __DIR__ . '/../../view/' . $caminhoTemplate;
-        $html = ob_get_clean();
+        public function renderizaHtml(string $caminhoTemplate, array $dados): string
+        {
+            extract($dados);
+            ob_start();
+            require __DIR__ . '/../../view/' . $caminhoTemplate;
+            $html = ob_get_clean();
 
-        return $html;
+            return $html;
+        }
     }
-}
