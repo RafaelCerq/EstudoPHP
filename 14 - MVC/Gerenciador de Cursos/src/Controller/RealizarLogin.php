@@ -3,35 +3,43 @@
     namespace Alura\Cursos\Controller;
 
     use Alura\Cursos\Entity\Usuario;
-    use Alura\Cursos\Infra\EntityManagerCreator;
+    use Alura\Cursos\Helper\FlashMessageTrait;
+    use Doctrine\ORM\EntityManagerInterface;
+    use Nyholm\Psr7\Response;
+    use Psr\Http\Message\ResponseInterface;
+    use Psr\Http\Message\ServerRequestInterface;
+    use Psr\Http\Server\RequestHandlerInterface;
 
-    class RealizarLogin implements InterfaceControladorRequisicao
+    class RealizarLogin implements RequestHandlerInterface
     {
+        use FlashMessageTrait;
+
         /**
          * @var \Doctrine\Common\Persistence\ObjectRepository
          */
         private $repositorioDeUsuarios;
 
-        public function __construct()
+        public function __construct(EntityManagerInterface $entityManager)
         {
-            $entityManager = (new EntityManagerCreator())->getEntityManager();
             $this->repositorioDeUsuarios = $entityManager
                 ->getRepository(Usuario::class);
         }
 
-        public function processaRequisicao(): void
+        public function handle(ServerRequestInterface $request): ResponseInterface
         {
-            $email = filter_input(
-                INPUT_POST,
-                'email',
+            $email = filter_var(
+                $request->getParsedBody()['email'],
                 FILTER_VALIDATE_EMAIL
             );
 
+            $redirecionamentoLogin = new Response(302, ['Location' => '/login']);
             if (is_null($email) || $email === false) {
-                $_SESSION['tipo_mensagem'] = 'danger';
-                $_SESSION['mensagem'] = "O e-mail digitado não é um e-mail válido.";
-                header('Location: /login');
-                return;
+                $this->defineMensagem(
+                    'danger',
+                    'O e-mail digitado não é um e-mail válido.'
+                );
+
+                return $redirecionamentoLogin;
             }
 
             $senha = filter_input(
@@ -45,14 +53,13 @@
                 ->findOneBy(['email' => $email]);
 
             if (is_null($usuario) || !$usuario->senhaEstaCorreta($senha)) {
-                $_SESSION['tipo_mensagem'] = 'danger';
-                $_SESSION['mensagem'] = "E-mail ou senha inválidos";
-                header('Location: /login');
-                return;
+                $this->defineMensagem('danger', 'E-mail ou senha inválidos');
+
+                return $redirecionamentoLogin;
             }
 
             $_SESSION['logado'] = true;
 
-            header('Location: /listar-cursos');
+            return new Response(302, ['Location' => '/listar-cursos']);
         }
     }

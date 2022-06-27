@@ -2,12 +2,21 @@
 
 	namespace Alura\Cursos\Controller;
 
-	class FormularioInsercao extends ControllerComHtml implements InterfaceControladorRequisicao
+	use Alura\Cursos\Helper\RenderizadorDeHtmlTrait;
+	use Nyholm\Psr7\Response;
+	use Psr\Http\Message\ResponseInterface;
+	use Psr\Http\Message\ServerRequestInterface;
+	use Psr\Http\Server\RequestHandlerInterface;
+
+	class FormularioInsercao implements RequestHandlerInterface
 	{
-		public function processaRequisicao(): void
+		use RenderizadorDeHtmlTrait;
+
+		public function handle(ServerRequestInterface $request): ResponseInterface
 		{
-			echo $this->renderizaHtml('cursos/formulario.php', [
+			$html = $this->renderizaHtml('cursos/formulario.php', [
 				'titulo' => 'Novo curso'
 			]);
+			return new Response(200, [], $html);
 		}
 	}

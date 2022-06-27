@@ -1,41 +1,41 @@
 <?php
 
-namespace Alura\Cursos\Entity;
+    namespace Alura\Cursos\Entity;
 
-/**
- * @Entity
- * @Table(name="cursos")
- */
-class Curso
-{
     /**
-     * @Id
-     * @GeneratedValue
-     * @Column(type="integer")
+     * @Entity
+     * @Table(name="cursos")
      */
-    private $id;
-    /**
-     * @Column(type="string")
-     */
-    private $descricao;
-
-    public function getId(): int
+    class Curso
     {
-        return $this->id;
-    }
+        /**
+         * @Id
+         * @GeneratedValue
+         * @Column(type="integer")
+         */
+        private $id;
+        /**
+         * @Column(type="string")
+         */
+        private $descricao;
 
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
+        public function getId(): int
+        {
+            return $this->id;
+        }
 
-    public function getDescricao(): string
-    {
-        return $this->descricao;
-    }
+        public function setId(int $id): void
+        {
+            $this->id = $id;
+        }
 
-    public function setDescricao(string $descricao): void
-    {
-        $this->descricao = $descricao;
+        public function getDescricao(): string
+        {
+            return $this->descricao;
+        }
+
+        public function setDescricao(string $descricao): void
+        {
+            $this->descricao = $descricao;
+        }
     }
-}
