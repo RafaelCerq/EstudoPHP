@@ -15,3 +15,8 @@
 
 # Server PHP Artisan (com host e porta)
 - php artisan serve --host=0.0.0.0 --port=8000
+
+
+# Em caso de 500 - Server Error abra a pasta raiz do projeto e execute:
+- copy .env.example .env
+- php artisan key:generate
