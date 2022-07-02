@@ -20,3 +20,7 @@
 # Em caso de 500 - Server Error abra a pasta raiz do projeto e execute:
 - copy .env.example .env
 - php artisan key:generate
+
+
+# Criar controller por linha de comando
+- php artisan make:controller nomeController
