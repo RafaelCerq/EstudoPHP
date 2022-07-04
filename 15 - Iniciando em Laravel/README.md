@@ -36,6 +36,12 @@
 # Executar Migrate
 - php artisan migrate
 
+# Zera as micrations e tabelas do banco, em seguita executa novmanete Migrate
+- php artisan migrate:fresh
+
 # desfazer execução de Migrate
 - php artisan migrate:rollback
 - php artisan migrate:rollback --step=5
+
+# Criar Model e migration
+- php artisan make:model Season -m
