@@ -28,3 +28,14 @@
 # Instalar componentes node (laravel mix)
 - npm install
 - npm install bootstrap
+- npm run dev (2x)
+
+# Criar Migration
+- php artisan make:migration create_series_table
+
+# Executar Migrate
+- php artisan migrate
+
+# desfazer execução de Migrate
+- php artisan migrate:rollback
+- php artisan migrate:rollback --step=5
