@@ -24,3 +24,7 @@
 
 # Criar controller por linha de comando
 - php artisan make:controller nomeController
+
+# Instalar componentes node (laravel mix)
+- npm install
+- npm install bootstrap
