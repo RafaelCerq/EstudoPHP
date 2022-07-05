@@ -1,18 +1,18 @@
 <?php
 
-    namespace App\Models;
+namespace App\Models;
 
-    use Illuminate\Database\Eloquent\Factories\HasFactory;
-    use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-    class Episode extends Model
+class Episode extends Model
+{
+    use HasFactory;
+    public $timestamps = false;
+    protected $fillable = ['number'];
+
+    public function season()
     {
-        use HasFactory;
-        public $timestamps = false;
-        protected $fillable = ['number'];
-
-        public function season()
-        {
-            return $this->belongsTo(Season::class);
-        }
+        return $this->belongsTo(Season::class);
     }
+}
