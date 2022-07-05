@@ -14,7 +14,6 @@ class EpisodesController
             'episodes' => $season->episodes,
             'mensagemSucesso' => session('mensagem.sucesso')
         ]);
-
     }
 
     public function update(Request $request, Season $season)

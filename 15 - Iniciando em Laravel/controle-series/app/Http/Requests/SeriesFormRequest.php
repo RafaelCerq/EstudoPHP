@@ -27,7 +27,7 @@ class SeriesFormRequest extends FormRequest
             'nome' => ['required', 'min:2'],
         ];
     }
-    
+
     // public function messages()
     // {
     //     return [
