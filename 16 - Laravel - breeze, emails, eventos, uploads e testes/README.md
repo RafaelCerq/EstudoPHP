@@ -1,5 +1,23 @@
 # Projeto em PHP 8.^ e Laravel 9.^
 
+# Configurações para rodar projeto
+- copy .env.example .env
+- php artisan key:generate
+- Configurar .env
+    - configurações Mysql
+    - configurações E-mail
+    - configurações queue = database;
+- composer install
+- npm install
+- php artisan migrate
+- php artisan storage:link
+
+# Executando projeto (2 terminais - Projeto e listenem mensageria)
+- php artisan serve
+- php artisan queue:listen --tries=2
+
+
+##
 # Habilitar fileinfo para criar projeto via composer
 - Localizar o arquivo php.ini no local de instalação do PHP
 - localizar dentro do arquivo o item extension=fileinfo e retirar o comentário
@@ -55,3 +73,16 @@
 - npm install
 - npm run dev
 - php artisan migrate
+
+# Configurar .env
+- configurações Mysql
+- configurações E-mail
+- configurações queue = database;
+
+# Executar fila mensageria
+- php artisan queue:work --tries=2
+- php artisan queue:listen --tries=2
+
+
+# Criar link Storage de imagens
+- php artisan storage:link
