@@ -84,3 +84,7 @@
 **Criar link Storage de imagens:**
 - php artisan storage:link
 
+## Teste no laravel
+- php vendor/bin/phpunit
+- php artisan test
+
