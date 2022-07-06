@@ -84,7 +84,15 @@
 **Criar link Storage de imagens:**
 - php artisan storage:link
 
+**Visualizar rotas**
+- php artisan route:list
+
 ## Teste no laravel
 - php vendor/bin/phpunit
 - php artisan test
 
+
+## API 
+- http://localhost:8000/api/series
+- http://localhost:8000/api/series/1
+- http://localhost:8000/api/series?nome=LIKE%NameSeries%.
