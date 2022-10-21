@@ -72,16 +72,16 @@
 - npm run dev
 - php artisan migrate
 
-**Laravel UI - AUTH
+**Laravel UI - AUTH**
 - composer require laravel/ui
 - npm install
 - npm run dev
 - npm run build
 
-**Exportar paginação
+**Exportar paginação**
 - php artisan vendor:publish --tag=laravel-pagination
 
-** Instalar Fontawesome
+**Instalar Fontawesome**
 - npm install --save-dev @fortawesome/fontawesome-free
 - Após instalar, coloque o import abaixo em app.css
 - @import "@fortawesome/fontawesome-free/css/all.css";
