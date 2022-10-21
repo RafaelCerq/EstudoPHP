@@ -72,11 +72,14 @@
 - npm run dev
 - php artisan migrate
 
-## Laravel UI - AUTH
+** Laravel UI - AUTH
 - composer require laravel/ui
 - npm install
 - npm run dev
 - npm run build
+
+** Exportar paginação
+- php artisan vendor:publish --tag=laravel-pagination
 
 
 **Configurar .env:**
