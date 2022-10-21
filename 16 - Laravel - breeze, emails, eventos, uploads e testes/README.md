@@ -72,6 +72,13 @@
 - npm run dev
 - php artisan migrate
 
+## Laravel UI - AUTH
+- composer require laravel/ui
+- npm install
+- npm run dev
+- npm run build
+
+
 **Configurar .env:**
 - configurações Mysql
 - configurações E-mail
@@ -96,3 +103,5 @@
 - http://localhost:8000/api/series
 - http://localhost:8000/api/series/1
 - http://localhost:8000/api/series?nome=LIKE%NameSeries%.
+
+
